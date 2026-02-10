@@ -1,0 +1,70 @@
+{{- $src := .Src -}} {{- $alt := .Alt | default "" -}} {{- $class := .Class |
+default "" -}} {{- $style := .Style | default "" -}} {{- if $src -}} {{- if or
+(hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+<img
+    loading="lazy"
+    decoding="async"
+    src="{{ $src }}"
+    alt="{{ $alt }}"
+    {{
+    with
+    $class
+    }}
+    class="{{ . }}"
+    {{
+    end
+    }}{{
+    with
+    $style
+    }}
+    style="{{ . }}"
+    {{
+    end
+    }}
+/>
+{{- else -}} {{- $clean := replaceRE "^/" "" $src -}} {{- $res := resources.Get
+$clean -}} {{- if $res -}}
+<img
+    loading="lazy"
+    decoding="async"
+    src="{{ $res.RelPermalink }}"
+    alt="{{ $alt }}"
+    {{
+    with
+    $class
+    }}
+    class="{{ . }}"
+    {{
+    end
+    }}{{
+    with
+    $style
+    }}
+    style="{{ . }}"
+    {{
+    end
+    }}
+/>
+{{- else -}}
+<img
+    loading="lazy"
+    decoding="async"
+    src="{{ $src | absURL }}"
+    alt="{{ $alt }}"
+    {{
+    with
+    $class
+    }}
+    class="{{ . }}"
+    {{
+    end
+    }}{{
+    with
+    $style
+    }}
+    style="{{ . }}"
+    {{
+    end
+    }}
+/>
+{{- end -}} {{- end -}} {{- end -}}

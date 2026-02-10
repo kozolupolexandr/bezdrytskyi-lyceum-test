@@ -1,0 +1,57 @@
+################### Ukrainian navigation ####################
+
+# main menu
+[[main]]
+name = "Про нас"
+url = "about/"
+weight = 1
+
+[[main]]
+name = "Навчання"
+url = "course/"
+weight = 2
+
+[[main]]
+weight = 3
+name = "Сторінки"
+hasChildren = true
+
+  [[main]]
+  parent = "Сторінки"
+  name = "Вчителі"
+  url = "teacher/"
+
+  [[main]]
+  parent = "Сторінки"
+  name = "Оголошення"
+  url = "notice/"
+
+  [[main]]
+  parent = "Сторінки"
+  name = "Події"
+  url = "event/"
+
+[[main]]
+name = "Блог"
+url = "blog/"
+weight = 4
+
+[[main]]
+name = "Контакти"
+url = "contact/"
+weight = 5
+
+
+# footer menu
+
+[[footer]]
+name = "Вчителі"
+url = "teacher/"
+
+[[footer]]
+name = "Оголошення"
+url = "notice/"
+
+[[footer]]
+name = "Події"
+url = "event/"

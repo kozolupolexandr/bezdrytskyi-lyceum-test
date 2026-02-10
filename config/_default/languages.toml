@@ -1,0 +1,11 @@
+################################### Ukrainian language #####################################
+[en]
+languageName = "Ua"
+languageCode = "uk-ua"
+contentDir = "content/english"
+weight = 1
+
+[en.params]
+home = "Головна"
+# copyright
+copyright = "Copyright &copy; 2026 Бездрицький ліцей"

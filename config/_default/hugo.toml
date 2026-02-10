@@ -1,0 +1,12 @@
+######################## default configuration ####################
+baseURL = "https://bezdrytskyi-lyceum.github.io/"
+title = "Бездрицький ліцей"
+theme = "educenter-hugo"
+timeZone = "Europe/Kyiv"
+# post pagination
+pagination.pagerSize = 6
+# post excerpt
+summaryLength = 10
+# disable language
+disableLanguages = ["fr"] # French disabled
+hasCJKLanguage = false

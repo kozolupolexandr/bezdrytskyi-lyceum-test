@@ -1,0 +1,146 @@
+################################# Slider #####################################
+slider:
+  enable : true
+  bg_image : "images/banner/banner-1.jpg"
+  slider_item:
+    # slider item loop
+    - title : "Ваше свiтле майбутнє — наша мiсiя"
+      content : "Бездрицький лiцей — це сучасний навчальний заклад, де кожен учень отримує якiсну освiту, розвиває свої таланти та готується до успiшного майбутнього. Ми створюємо умови для всебiчного розвитку особистостi."
+      animation_in : "left"
+      animation_out : "right"
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "Дiзнатися бiльше"
+        link : "contact/"
+
+    # slider item loop
+    - title : "Ваше свiтле майбутнє — наша мiсiя"
+      content : "У нашому лiцеї працюють досвiдченi педагоги, якi допомагають учням досягати високих результатiв у навчаннi та олiмпiадах. Ми пишаємося нашими випускниками, якi вступають до найкращих унiверситетiв України."
+      animation_in : "left"
+      animation_out : "right"
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "Дiзнатися бiльше"
+        link : "contact/"
+
+    # slider item loop
+    - title : "Ваше свiтле майбутнє — наша мiсiя"
+      content : "Бездрицький лiцей пропонує сучасну матерiально-технiчну базу, комфортнi класи та творчу атмосферу для навчання. Кожна дитина має можливiсть розкрити свiй потенцiал через навчання, спорт та позакласну дiяльнiсть."
+      animation_in : "left"
+      animation_out : "right"
+      # available animation : left, right, up, down
+      button:
+        enable : true
+        label : "Дiзнатися бiльше"
+        link : "contact/"
+
+
+############################### Banner feature ###############################
+banner_feature:
+  enable : true
+  image : "images/banner/banner-feature.png"
+  feature_item:
+    # feature item loop
+    - name : "Новини лiцею"
+      icon : "ti-book" # icon pack : https://themify.me/themify-icons
+      content : "Будьте в курсi останнiх подiй шкiльного життя: змагання, конкурси, святковi заходи та досягнення наших учнiв i педагогiв."
+
+    # feature item loop
+    - name : "Дошка оголошень"
+      icon : "ti-blackboard" # icon pack : https://themify.me/themify-icons
+      content : "Важлива iнформацiя для учнiв та батькiв: розклад занять, змiни у навчальному процесi, батькiвськi збори та оголошення адмiнiстрацiї."
+
+    # feature item loop
+    - name : "Нашi досягнення"
+      icon : "ti-agenda" # icon pack : https://themify.me/themify-icons
+      content : "Перемоги наших учнiв на олiмпiадах, конкурсах та змаганнях рiзних рiвнiв. Ми пишаємося кожним досягненням нашого лiцею."
+
+    # feature item loop
+    - name : "Вступ до лiцею"
+      icon : "ti-write" # icon pack : https://themify.me/themify-icons
+      content : "Дiзнайтеся про умови вступу, необхiднi документи та термiни подання заяв. Ми чекаємо на нових учнiв у Бездрицькому лiцеї."
+
+
+############################## about ##################################
+about:
+  enable : true
+  title : "Про Бездрицький лiцей"
+  image : "images/about/about-us.jpg"
+  content : "Бездрицький лiцей — це сучасний загальноосвiтнiй навчальний заклад, який забезпечує високий рiвень знань та всебiчний розвиток учнiв. Наш педагогiчний колектив працює над тим, щоб кожна дитина отримала якiсну освiту та була готова до викликiв сучасного свiту. Ми поєднуємо традицiї української школи з iнновацiйними методами навчання.
+
+
+  У лiцеї створено комфортне освiтнє середовище з сучасним обладнанням, комп'ютерними класами та бiблiотекою. Ми пiдтримуємо iндивiдуальний пiдхiд до кожного учня та активно залучаємо дiтей до позакласної дiяльностi, спортивних секцiй та творчих гурткiв."
+  button:
+    enable : true
+    label : "Дiзнатися бiльше"
+    link : "about/"
+
+
+############################# Course ################################
+course:
+  enable : true
+  title : "Навчальнi предмети"
+  # course item comes from "content/**/course" folder.
+
+########################## Call to action ############################
+cta:
+  enable : true
+  subtitle : "Приєднуйтесь до нашого навчального процесу"
+  title : "Запис до Бездрицького лiцею"
+  button:
+    enable : true
+    label : "Записатися зараз"
+    link : "contact/"
+
+
+######################## Success story #############################
+success_story:
+  enable : true
+  bg_image : "images/backgrounds/success-story.jpg"
+  title : "Iсторiї успiху"
+  content : "Випускники Бездрицького лiцею успiшно вступають до провiдних унiверситетiв України та здобувають визнання у рiзних сферах дiяльностi. Нашi колишнi учнi стають лiкарями, iнженерами, вчителями, науковцями та пiдприємцями, якi роблять вагомий внесок у розвиток громади та країни.
+
+
+  Ми пишаємося кожним нашим випускником i завжди радi бачити їх у стiнах рiдного лiцею. Їхнi досягнення надихають сучасних учнiв на наполегливу працю та прагнення до нових вершин."
+  # video link
+  video_link : "https://www.youtube.com/watch?v=ResipmZmpDU"
+
+
+############################# event ################################
+event:
+  enable : true
+  title : "Найближчi подiї"
+  # event item comes from "content/**/event" folder.
+
+
+########################### funfacts ############################
+funfacts:
+  enable : true
+  funfact_item:
+    # funfact item loop
+    - name : "ВЧИТЕЛIВ"
+      count : "30"
+
+    # funfact item loop
+    - name : "ПРЕДМЕТIВ"
+      count : "20"
+
+    # funfact item loop
+    - name : "УЧНIВ"
+      count : "300"
+
+    # funfact item loop
+    - name : "ВИПУСКНИКIВ"
+      count : "500"
+
+# funfact is for about page
+
+
+
+############################# blog ################################
+blog:
+  enable : true
+  title : "Останнi новини"
+  # blog item comes from "content/**/blog" folder.
