@@ -1,5 +1,5 @@
 ---
-title: "Про нас"
+title: "Прозорість та інформаційна відкритість"
 draft: false
 bg_image: "images/backgrounds/page-title.jpg"
 image: "images/about/about-page.jpg"

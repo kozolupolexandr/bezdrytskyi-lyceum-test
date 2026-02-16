@@ -2,9 +2,160 @@
 
 # main menu
 [[main]]
-name = "Про нас"
+name = "Прозорість та інформаційна відкритість"
 url = "about/"
 weight = 1
+hasChildren = true
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Статут гімназії"
+  url = "about/statut-gimnaziyi/"
+  weight = 1
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Ліцензія на провадження освітньої діяльності"
+  url = "about/licenziya-na-provadzhennya-osvitnoyi-diyalnosti/"
+  weight = 2
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Структура та органи управління закладу освіти"
+  url = "about/struktura-ta-organy-upravlinnya-zakladu-osvity/"
+  weight = 3
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Кадровий склад ліцею Педагогічний колектив"
+  url = "about/kadrovyj-sklad-liceyu-pedagogichnyj-kolektyv/"
+  weight = 4
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Освітні програми"
+  url = "about/osvitni-programy/"
+  weight = 5
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Територія обслуговування"
+  url = "about/terytoriya-obslugovuvannya/"
+  weight = 6
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Ліцензований обсяг та фактична кількість осіб, які навчаються у закладі освіти"
+  url = "about/licenzovanyj-obsyag-ta-faktychna-kilkist-osib/"
+  weight = 7
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Наявність вакантних посад"
+  url = "about/nayavnist-vakantnyh-posad/"
+  weight = 8
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Матеріально-технічне забезпечення освітнього процесу"
+  url = "about/materialno-tehnichne-zabezpechennya-osvitnogo-procesu/"
+  weight = 9
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Моніторинг якості освіти"
+  url = "about/monitoryng-yakosti-osvity/"
+  weight = 10
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Річний звіт про діяльність закладу освіти"
+  url = "about/richnyj-zvit-pro-diyalnist-zakladu-osvity/"
+  weight = 11
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Правила прийому до закладу освіти"
+  url = "about/pravyla-pryjomu-do-zakladu-osvity/"
+  weight = 12
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Умови доступності закладу освіти для навчання осіб з особливими освітніми потребами"
+  url = "about/umovy-dostupnosti-zakladu-osvity/"
+  weight = 13
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Розмір плати за навчання"
+  url = "about/rozmir-platy-za-navchannya/"
+  weight = 14
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Правила поведінки здобувача освіти в закладі освіти"
+  url = "about/pravyla-povedinky-zdobuvacha-osvity/"
+  weight = 15
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "План заходів, спрямованих на запобігання та протидію булінгу (цькуванню) в закладі освіти"
+  url = "about/plan-zahodiv-zapobigannya-bulingu/"
+  weight = 16
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Порядок подання та розгляду заяв про випадки булінгу (цькування) в закладі освіти"
+  url = "about/poryadok-podannya-ta-rozglyadu-zayav-pro-buling/"
+  weight = 17
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Порядок реагування на випадки булінгу (цькування) в закладі освіти та відповідальність осіб, причетних до булінгу (цькування)"
+  url = "about/poryadok-reaguvannya-na-vypadky-bulingu/"
+  weight = 18
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Публічні кошти"
+  url = "about/publichni-koshty/"
+  weight = 19
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Закон України \"Про інформацію\""
+  url = "about/zakon-ukrayiny-pro-informaciyu/"
+  weight = 20
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Закон України \"Про освіту\""
+  url = "about/zakon-ukrayiny-pro-osvitu/"
+  weight = 21
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Вибір підручників"
+  url = "about/vybir-pidruchnykiv/"
+  weight = 22
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Мова освітнього процесу"
+  url = "about/mova-osvitnogo-procesu/"
+  weight = 23
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Перелік додаткових освітніх та інших послуг, їх вартість, порядок надання та оплати"
+  url = "about/perelik-dodatkovyh-poslug/"
+  weight = 24
+
+  [[main]]
+  parent = "Прозорість та інформаційна відкритість"
+  name = "Атестація педагогічних працівників"
+  url = "about/atestaciya-pedagogichnyh-pracivnykiv/"
+  weight = 25
 
 [[main]]
 name = "Навчання"
