@@ -6,10 +6,30 @@ image: "images/about/about-page.jpg"
 description: "Бездрицький ліцей — сучасний навчальний заклад Сумської області"
 ---
 
-## Про наш ліцей
+## Прозорість та інформаційна відкритість
 
-Бездрицький ліцей — це сучасний навчальний заклад, який забезпечує якісну освіту для дітей Бездрика та навколишніх населених пунктів Сумської області. Наш ліцей поєднує кращі освітні традиції з інноваційними методами навчання.
-
-Ліцей має досвідчений педагогічний колектив, сучасні навчальні кабінети, комп'ютерний клас, спортивний зал та бібліотеку. Ми прагнемо створити комфортне та безпечне середовище для розвитку кожної дитини.
-
-Наші учні регулярно беруть участь у районних та обласних олімпіадах, конкурсах та спортивних змаганнях. Ми пишаємося нашими випускниками, які успішно продовжують навчання у провідних університетах України.
+- [Статут гімназії](/about/statut-gimnaziyi/)
+- [Ліцензія на провадження освітньої діяльності](/about/licenziya-na-provadzhennya-osvitnoyi-diyalnosti/)
+- [Структура та органи управління закладу освіти](/about/struktura-ta-organy-upravlinnya-zakladu-osvity/)
+- [Кадровий склад ліцею Педагогічний колектив](/about/kadrovyj-sklad-liceyu-pedagogichnyj-kolektyv/)
+- [Освітні програми](/about/osvitni-programy/)
+- [Територія обслуговування](/about/terytoriya-obslugovuvannya/)
+- [Ліцензований обсяг та фактична кількість осіб, які навчаються у закладі освіти](/about/licenzovanyj-obsyag-ta-faktychna-kilkist-osib/)
+- [Наявність вакантних посад](/about/nayavnist-vakantnyh-posad/)
+- [Матеріально-технічне забезпечення освітнього процесу](/about/materialno-tehnichne-zabezpechennya-osvitnogo-procesu/)
+- [Моніторинг якості освіти](/about/monitoryng-yakosti-osvity/)
+- [Річний звіт про діяльність закладу освіти](/about/richnyj-zvit-pro-diyalnist-zakladu-osvity/)
+- [Правила прийому до закладу освіти](/about/pravyla-pryjomu-do-zakladu-osvity/)
+- [Умови доступності закладу освіти для навчання осіб з особливими освітніми потребами](/about/umovy-dostupnosti-zakladu-osvity/)
+- [Розмір плати за навчання](/about/rozmir-platy-za-navchannya/)
+- [Правила поведінки здобувача освіти в закладі освіти](/about/pravyla-povedinky-zdobuvacha-osvity/)
+- [План заходів, спрямованих на запобігання та протидію булінгу (цькуванню) в закладі освіти](/about/plan-zahodiv-zapobigannya-bulingu/)
+- [Порядок подання та розгляду заяв про випадки булінгу (цькування) в закладі освіти](/about/poryadok-podannya-ta-rozglyadu-zayav-pro-buling/)
+- [Порядок реагування на випадки булінгу (цькування) в закладі освіти та відповідальність осіб, причетних до булінгу (цькування)](/about/poryadok-reaguvannya-na-vypadky-bulingu/)
+- [Публічні кошти](/about/publichni-koshty/)
+- [Закон України "Про інформацію"](/about/zakon-ukrayiny-pro-informaciyu/)
+- [Закон України "Про освіту"](/about/zakon-ukrayiny-pro-osvitu/)
+- [Вибір підручників](/about/vybir-pidruchnykiv/)
+- [Мова освітнього процесу](/about/mova-osvitnogo-procesu/)
+- [Перелік додаткових освітніх та інших послуг, їх вартість, порядок надання та оплати](/about/perelik-dodatkovyh-poslug/)
+- [Атестація педагогічних працівників](/about/atestaciya-pedagogichnyh-pracivnykiv/)
