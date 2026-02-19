@@ -8,13 +8,12 @@ course: "Педагогічний працівник"
 bio: "Русланова Людмила Іванівна — педагогічний працівник Бездрицького ліцею. Інформація про посаду, стаж і кваліфікацію оновлюється."
 interest: ["Освітній процес"]
 contact:
-  - name: "lyceum.bezdrytske.edu.ua"
-    icon: "ti-world"
-    link: "#"
-  - name: "Бездрик, Сумська область"
-    icon: "ti-location-pin"
-    link: "#"
-type: "teacher"
+  - name: "test@mail.ua"
+    icon: "ti-email"
+    link: "mailto:test@mail.ua"
+  - name: "+380 542 111 222"
+    icon: "ti-mobile"
+    link: "tel:+380542111222"
 categories: ["Наші вчителі"]
 ---
 

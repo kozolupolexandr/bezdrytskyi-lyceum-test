@@ -40,3 +40,25 @@
   object-fit: cover;
   object-position: top center;
 }
+
+.teacher-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.teacher-card__title {
+  line-height: 1.3;
+  min-height: calc(1.3em * 2);
+  margin-bottom: 0.75rem;
+}
+
+.teacher-card__title a {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.teacher-card .list-inline {
+  margin-top: auto;
+}
