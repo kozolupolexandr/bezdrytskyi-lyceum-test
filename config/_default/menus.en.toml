@@ -5,9 +5,10 @@
 name = "Прозорість та інформаційна відкритість"
 url = "about/"
 weight = 1
+
 [[main]]
-name = "Навчання"
-url = "course/"
+name = "Протидія булінгу"
+url = "anti-bullying/"
 weight = 2
 
 [[main]]
@@ -22,6 +23,12 @@ hasChildren = true
 
   [[main]]
   parent = "Сторінки"
+  name = "Навчання"
+  url = "course/"
+  weight = 2
+
+  [[main]]
+  parent = "Сторінки"
   name = "Оголошення"
   url = "notice/"
 
@@ -29,6 +36,17 @@ hasChildren = true
   parent = "Сторінки"
   name = "Події"
   url = "event/"
+
+
+[[main]]
+weight = 4
+name = "Посилання"
+hasChildren = true
+
+    [[main]]
+    parent = "Посилання"
+    name = "Блог практичного психолога Юсиченко Анни Вікторівни"
+    url = "https://925anna.blogspot.com/"
 
 [[main]]
 name = "Блог"
