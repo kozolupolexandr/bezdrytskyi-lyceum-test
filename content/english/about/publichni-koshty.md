@@ -10,4 +10,6 @@ draft: false
 
 ## Публічні кошти
 
-Матеріал готується до публікації.
+<a href="/Prozorist/Видатки  2025.docx" target="_blank">Видатки 2025.docx</a>
+
+<a href="/Prozorist/Розшифровка 0611021 2026.xlsx" target="_blank">Розшифровка 0611021 2026.xlsx</a>

@@ -117,7 +117,7 @@ a h4{
     top: 0;
     left: 0;
     background: $secondary-color;
-    opacity: .8;
+    opacity: .3;
   }
 }
 
@@ -340,6 +340,7 @@ textarea.form-control{
 
   ol {
     padding-left: 20px;
+    list-style-type: decimal;
   }
 
   ul {
