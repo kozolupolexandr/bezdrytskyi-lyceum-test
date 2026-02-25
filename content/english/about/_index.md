@@ -10,13 +10,13 @@ description: "Бездрицький ліцей — сучасний навча�
 
 - [Статут ліцею](/about/statut-gimnaziyi/)
 - [Ліцензія на провадження освітньої діяльності](/about/licenziya-na-provadzhennya-osvitnoyi-diyalnosti/)
-- <a href="/about/struktura-ta-organy-upravlinnya-zakladu-osvity/" class="link-draft">Структура та органи управління закладу освіти</a>
+- [Структура та органи управління закладу освіти](/about/struktura-ta-organy-upravlinnya-zakladu-osvity/)
 - [Кадровий склад ліцею Педагогічний колектив](/about/kadrovyj-sklad-liceyu-pedagogichnyj-kolektyv/)
 - <a href="/about/osvitni-programy/" class="link-draft">Освітні програми</a>
 - <a href="/about/terytoriya-obslugovuvannya/" class="link-draft">Територія обслуговування</a>
 - [Ліцензований обсяг та фактична кількість осіб, які навчаються у закладі освіти](/about/licenzovanyj-obsyag-ta-faktychna-kilkist-osib/)
 - [Наявність вакантних посад](/about/nayavnist-vakantnyh-posad/)
-- <a href="/about/materialno-tehnichne-zabezpechennya-osvitnogo-procesu/" class="link-draft">Матеріально-технічне забезпечення освітнього процесу</a>
+- [Матеріально-технічне забезпечення освітнього процесу](/about/materialno-tehnichne-zabezpechennya-osvitnogo-procesu/)
 - <a href="/about/monitoryng-yakosti-osvity/" class="link-draft">Моніторинг якості освіти</a>
 - <a href="/about/richnyj-zvit-pro-diyalnist-zakladu-osvity/" class="link-draft">Річний звіт про діяльність закладу освіти</a>
 - [Правила прийому до закладу освіти](/about/pravyla-pryjomu-do-zakladu-osvity/)
