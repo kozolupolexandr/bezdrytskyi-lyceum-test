@@ -10,6 +10,6 @@ draft: false
 
 ## Публічні кошти
 
-<a href="/Prozorist/Видатки  2025.docx" target="_blank">Видатки 2025.docx</a>
+[Завантажити Видатки 2025 (DOCX)](../../Prozorist/Видатки%20%202025.docx)
 
-<a href="/Prozorist/Розшифровка 0611021 2026.xlsx" target="_blank">Розшифровка 0611021 2026.xlsx</a>
+[Завантажити Розшифровка 0611021 2026 (XLSX)](../../Prozorist/Розшифровка%200611021%202026.xlsx)
