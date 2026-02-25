@@ -13,7 +13,7 @@ description: "Бездрицький ліцей — сучасний навча�
 - [Структура та органи управління закладу освіти](/about/struktura-ta-organy-upravlinnya-zakladu-osvity/)
 - [Кадровий склад ліцею Педагогічний колектив](/about/kadrovyj-sklad-liceyu-pedagogichnyj-kolektyv/)
 - <a href="/about/osvitni-programy/" class="link-draft">Освітні програми</a>
-- <a href="/about/terytoriya-obslugovuvannya/" class="link-draft">Територія обслуговування</a>
+- [Територія обслуговування](/about/terytoriya-obslugovuvannya/)
 - [Ліцензований обсяг та фактична кількість осіб, які навчаються у закладі освіти](/about/licenzovanyj-obsyag-ta-faktychna-kilkist-osib/)
 - [Наявність вакантних посад](/about/nayavnist-vakantnyh-posad/)
 - [Матеріально-технічне забезпечення освітнього процесу](/about/materialno-tehnichne-zabezpechennya-osvitnogo-procesu/)
@@ -28,7 +28,8 @@ description: "Бездрицький ліцей — сучасний навча�
 - [Порядок реагування на випадки булінгу (цькування) в закладі освіти та відповідальність осіб, причетних до булінгу (цькування)](/about/poryadok-reaguvannya-na-vypadky-bulingu/)
 - [Публічні кошти](/about/publichni-koshty/)
 - <a href="/about/zakon-ukrayiny-pro-informaciyu/" class="link-draft">Закон України "Про інформацію"</a>
-- <a href="/about/zakon-ukrayiny-pro-osvitu/" class="link-draft">Закон України "Про освіту"</a>
+- <a href="https://zakon.rada.gov.ua/laws/show/2145-19#Text" target="_blank">Закон України "Про освіту"</a>
+- <a href="https://zakon.rada.gov.ua/laws/show/463-20#Text" target="_blank">Закон України "Про повну загальну середню освіту"</a>
 - <a href="/about/vybir-pidruchnykiv/" class="link-draft">Вибір підручників</a>
 - [Мова освітнього процесу](/about/mova-osvitnogo-procesu/)
 - <a href="/about/perelik-dodatkovyh-poslug/" class="link-draft">Перелік додаткових освітніх та інших послуг, їх вартість, порядок надання та оплати</a>

@@ -5,7 +5,7 @@ logo = "images/logo.png"
 description = "Офіційний сайт Бездрицького ліцею"
 author = "Бездрицький ліцей"
 # contact info
-address = "42350, вул. Жовтнева, 37, с. Бездрик, Сумський р-н, Сумська область, Україна"
+address = "42350, вул. Центральна, 37, с. Бездрик, Сумський р-н, Сумська область, Україна"
 mobile = "+380952511181"
 email = "bezdryk_school@ukr.net"
 # contact form action

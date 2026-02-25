@@ -18,6 +18,11 @@ hasChildren = true
 
   [[main]]
   parent = "Сторінки"
+  name = "Адміністрація"
+  url = "administration/"
+
+  [[main]]
+  parent = "Сторінки"
   name = "Вчителі"
   url = "teacher/"
 
