@@ -32,5 +32,6 @@ description: "Бездрицький ліцей — сучасний навча�
 - <a href="https://zakon.rada.gov.ua/laws/show/463-20#Text" target="_blank">Закон України "Про повну загальну середню освіту"</a>
 - <a href="/about/vybir-pidruchnykiv/" class="link-draft">Вибір підручників</a>
 - [Мова освітнього процесу](/about/mova-osvitnogo-procesu/)
-- <a href="/about/perelik-dodatkovyh-poslug/" class="link-draft">Перелік додаткових освітніх та інших послуг, їх вартість, порядок надання та оплати</a>
+- [Перелік додаткових освітніх та інших послуг, їх вартість, порядок надання та оплати](/about/perelik-dodatkovyh-poslug/)
 - <a href="/about/atestaciya-pedagogichnyh-pracivnykiv/" class="link-draft">Атестація педагогічних працівників</a>
+- <a href="/about/polozhennya-pro-zapobigannya-nasylstvu/" class="link-draft">Положення про запобігання і протидію насильству та жорстокому поводженню з дітьми в закладі освіти</a>
