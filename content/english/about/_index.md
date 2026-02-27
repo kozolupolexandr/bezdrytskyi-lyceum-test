@@ -34,4 +34,4 @@ description: "Бездрицький ліцей — сучасний навча�
 - [Мова освітнього процесу](/about/mova-osvitnogo-procesu/)
 - [Перелік додаткових освітніх та інших послуг, їх вартість, порядок надання та оплати](/about/perelik-dodatkovyh-poslug/)
 - <a href="/about/atestaciya-pedagogichnyh-pracivnykiv/" class="link-draft">Атестація педагогічних працівників</a>
-- <a href="/about/polozhennya-pro-zapobigannya-nasylstvu/" class="link-draft">Положення про запобігання і протидію насильству та жорстокому поводженню з дітьми в закладі освіти</a>
+- [Положення про запобігання і протидію насильству та жорстокому поводженню з дітьми в закладі освіти](/about/polozhennya-pro-zapobigannya-nasylstvu/)
