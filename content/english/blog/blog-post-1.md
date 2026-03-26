@@ -1,22 +1,24 @@
 ---
 title: "День знань у Бездрицькому ліцеї"
-date: 2024-09-01T09:00:00+03:00
-draft: false
+date: 2024-09-01T06:00:00.000Z
+draft: true
 # page title background image
 bg_image: "images/backgrounds/page-title.jpg"
 # meta description
-description : "Святкування Дня знань у нашому ліцеї"
+description: "Святкування Дня знань у нашому ліцеї"
 # post thumbnail
 image: "images/blog/post-1.jpg"
 # post author
 author: "Адміністрація"
 # taxonomy
-categories: ["Шкільне життя"]
-tags: ["Свята", "Навчання"]
+categories:
+  - Шкільне життя
+tags:
+  - Свята
+  - Навчання
 # type
 type: "post"
 ---
-
 ### День знань у нашому ліцеї
 
 Першого вересня Бездрицький ліцей знову відчинив двері для своїх учнів. Святкова лінійка зібрала учнів, батьків та вчителів. Першокласники вперше переступили поріг школи, а випускники готуються до свого останнього навчального року.
