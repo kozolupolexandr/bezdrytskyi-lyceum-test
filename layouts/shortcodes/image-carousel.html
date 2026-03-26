@@ -1,0 +1,179 @@
+﻿{{- $id := printf "img-carousel-%d" now.UnixNano -}}
+{{- $height := .Get "height" | default "420" -}}
+{{- $autoplay := .Get "autoplay" | default "true" -}}
+{{- $dots := .Get "dots" | default "true" -}}
+{{- $arrows := .Get "arrows" | default "true" -}}
+{{- $inner := .Inner | strings.TrimSpace -}}
+{{- $lines := split $inner "\n" -}}
+
+<div class="article-image-carousel" id="{{ $id }}" style="--carousel-height: {{ $height }}px;">
+  <div class="article-image-carousel__track">
+    {{- range $line := $lines -}}
+      {{- $raw := strings.TrimSpace $line -}}
+      {{- if $raw -}}
+        {{- $parts := split $raw "|" -}}
+        {{- $src := strings.TrimSpace (index $parts 0) -}}
+        {{- $caption := "" -}}
+        {{- if ge (len $parts) 2 -}}
+          {{- $caption = strings.TrimSpace (delimit (after 1 $parts) "|") -}}
+        {{- end -}}
+        <figure class="article-image-carousel__item">
+          <img src="{{ $src }}" alt="{{ if $caption }}{{ $caption }}{{ else }}Фото{{ end }}" loading="lazy">
+          {{- if $caption }}
+          <figcaption>{{ $caption }}</figcaption>
+          {{- end }}
+        </figure>
+      {{- end -}}
+    {{- end -}}
+  </div>
+
+  <div class="article-image-carousel__thumbs">
+    {{- range $line := $lines -}}
+      {{- $raw := strings.TrimSpace $line -}}
+      {{- if $raw -}}
+        {{- $parts := split $raw "|" -}}
+        {{- $src := strings.TrimSpace (index $parts 0) -}}
+        {{- $caption := "" -}}
+        {{- if ge (len $parts) 2 -}}
+          {{- $caption = strings.TrimSpace (delimit (after 1 $parts) "|") -}}
+        {{- end -}}
+        <div class="article-image-carousel__thumb-item">
+          <img src="{{ $src }}" alt="{{ if $caption }}{{ $caption }}{{ else }}Мініатюра{{ end }}" loading="lazy">
+        </div>
+      {{- end -}}
+    {{- end -}}
+  </div>
+</div>
+
+<style>
+  .article-image-carousel {
+    margin: 1.25rem 0;
+  }
+
+  .article-image-carousel__item {
+    margin: 0;
+    padding: 0 6px;
+  }
+
+  .article-image-carousel__item img {
+    width: 100%;
+    height: var(--carousel-height);
+    max-height: 70vh;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+  }
+
+  .article-image-carousel__item figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #6c757d;
+    text-align: center;
+  }
+
+  .article-image-carousel__thumbs {
+    margin-top: 10px;
+  }
+
+  .article-image-carousel__thumb-item {
+    padding: 0 4px;
+    cursor: pointer;
+    opacity: 0.65;
+    transition: opacity 0.2s ease;
+  }
+
+  .article-image-carousel__thumb-item:hover {
+    opacity: 1;
+  }
+
+  .article-image-carousel__thumb-item img {
+    width: 100%;
+    height: 74px;
+    object-fit: cover;
+    border-radius: 3px;
+    display: block;
+  }
+
+  .article-image-carousel__thumbs .slick-current .article-image-carousel__thumb-item {
+    opacity: 1;
+  }
+
+  .article-image-carousel__thumbs .slick-current .article-image-carousel__thumb-item img {
+    outline: 2px solid #1e90ff;
+    outline-offset: 0;
+  }
+
+  @media (max-width: 767px) {
+    .article-image-carousel {
+      margin: 1rem 0;
+    }
+
+    .article-image-carousel__item {
+      padding: 0 2px;
+    }
+
+    .article-image-carousel__item img {
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+    }
+
+    .article-image-carousel__thumb-item img {
+      height: 56px;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener("load", function () {
+    if (!window.jQuery || !window.jQuery.fn || !window.jQuery.fn.slick) {
+      return;
+    }
+
+    var $main = window.jQuery("#{{ $id }} .article-image-carousel__track");
+    var $thumbs = window.jQuery("#{{ $id }} .article-image-carousel__thumbs");
+
+    if (!$main.length || !$thumbs.length || $main.hasClass("slick-initialized")) {
+      return;
+    }
+
+    $main.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      adaptiveHeight: true,
+      autoplay: {{ $autoplay }},
+      autoplaySpeed: 3500,
+      dots: {{ $dots }},
+      arrows: {{ $arrows }},
+      asNavFor: "#{{ $id }} .article-image-carousel__thumbs",
+      prevArrow: "<button type='button' class='prevArrow' aria-label='Попереднє фото'><i class='ti-angle-left'></i></button>",
+      nextArrow: "<button type='button' class='nextArrow' aria-label='Наступне фото'><i class='ti-angle-right'></i></button>"
+    });
+
+    $thumbs.slick({
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      asNavFor: "#{{ $id }} .article-image-carousel__track",
+      dots: false,
+      arrows: false,
+      focusOnSelect: true,
+      infinite: true,
+      centerMode: false,
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 576,
+          settings: {
+            slidesToShow: 3
+          }
+        }
+      ]
+    });
+  });
+</script>
