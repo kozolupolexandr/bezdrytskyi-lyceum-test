@@ -1,6 +1,6 @@
 {
   "content": "content",
-  "media": "static",
+  "media": "static/images",
   "public": "static",
   "configs": [
     "config/_default"
