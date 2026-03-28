@@ -3,7 +3,7 @@
 # main menu
 [[main]]
 name = "Прозорість та інформаційна відкритість"
-url = "about/"
+url = "prozorist/"
 weight = 1
 
 [[main]]
@@ -25,12 +25,6 @@ hasChildren = true
   parent = "Сторінки"
   name = "Вчителі"
   url = "teacher/"
-
-  [[main]]
-  parent = "Сторінки"
-  name = "Навчання"
-  url = "course/"
-  weight = 2
 
   [[main]]
   parent = "Сторінки"

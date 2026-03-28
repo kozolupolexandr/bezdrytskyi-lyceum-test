@@ -75,12 +75,12 @@ about:
   button:
     enable : true
     label : "Дiзнатися бiльше"
-    link : "about/"
+    link : "prozorist/"
 
 
 ############################# Course ################################
 course:
-  enable : true
+  enable : false
   title : "Навчальнi предмети"
   # course item comes from "content/**/course" folder.
 

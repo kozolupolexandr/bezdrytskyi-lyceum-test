@@ -1,6 +1,6 @@
 ﻿{{ define "main" }} {{ $phone := .Params.phone | default site.Params.mobile }}
-{{ $email := .Params.email | default site.Params.email }}
-{{ $address := .Params.address | default site.Params.address }}
+{{ $email := .Params.email | default site.Params.email }} {{ $address :=
+.Params.address | default site.Params.address }}
 
 <!-- contact -->
 <section class="section bg-gray">
@@ -79,4 +79,3 @@
 <!-- /gmap -->
 
 {{ end }}
-
