@@ -1,0 +1,314 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Optional local mode:
+# local_backend: true
+
+locale: "uk"
+site_url: "https://kozolupolexandr.github.io/bezdrytskyi-lyceum-test/"
+display_url: "https://kozolupolexandr.github.io/bezdrytskyi-lyceum-test/"
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Блог"
+    folder: "content/ukrainian/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - {
+          label: "Чернетка",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+      - {
+          label: "Фон заголовка",
+          name: "bg_image",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Опис",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Головне зображення",
+          name: "image",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Автор", name: "author", widget: "string", required: false }
+      - {
+          label: "Категорії",
+          name: "categories",
+          widget: "list",
+          required: false,
+        }
+      - { label: "Теги", name: "tags", widget: "list", required: false }
+      - { label: "Тип", name: "type", widget: "hidden", default: "post" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "notice"
+    label: "Оголошення"
+    folder: "content/ukrainian/notice"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - {
+          label: "Чернетка",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+      - {
+          label: "Фон заголовка",
+          name: "bg_image",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Опис",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Посилання на файл",
+          name: "download_link",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Тип", name: "type", widget: "hidden", default: "notice" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "event"
+    label: "Події"
+    folder: "content/ukrainian/event"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - {
+          label: "Дата публікації",
+          name: "publishDate",
+          widget: "datetime",
+          required: false,
+        }
+      - {
+          label: "Чернетка",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+      - {
+          label: "Фон заголовка",
+          name: "bg_image",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Опис",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Зображення", name: "image", widget: "image", required: false }
+      - {
+          label: "Локація",
+          name: "location",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Вартість", name: "fee", widget: "string", required: false }
+      - {
+          label: "URL реєстрації",
+          name: "apply_url",
+          widget: "string",
+          required: false,
+        }
+      - label: "Спікери"
+        name: "speaker"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Ім'я", name: "name", widget: "string" }
+          - { label: "Фото", name: "image", widget: "image", required: false }
+          - {
+              label: "Посада",
+              name: "designation",
+              widget: "string",
+              required: false,
+            }
+      - { label: "Тип", name: "type", widget: "hidden", default: "event" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "teacher"
+    label: "Вчителі"
+    folder: "content/ukrainian/teacher"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "ПІБ", name: "title", widget: "string" }
+      - {
+          label: "Чернетка",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+      - {
+          label: "Фон заголовка",
+          name: "bg_image",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Опис",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Фото", name: "image", widget: "image", required: false }
+      - { label: "Посада", name: "course", widget: "string", required: false }
+      - { label: "Біо", name: "bio", widget: "text", required: false }
+      - label: "Інтереси"
+        name: "interest"
+        widget: "list"
+        required: false
+      - label: "Контакти"
+        name: "contact"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Текст", name: "name", widget: "string" }
+          - { label: "Іконка", name: "icon", widget: "string", required: false }
+          - { label: "Посилання", name: "link", widget: "string" }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "about_docs"
+    label: "Документи (Про прозорість)"
+    folder: "content/ukrainian/about"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime", required: false }
+      - {
+          label: "Опис",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Текст", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Статичні сторінки"
+    files:
+      - label: "Прозорість"
+        name: "prozorist"
+        file: "content/ukrainian/prozorist.md"
+        fields:
+          - { label: "Заголовок", name: "title", widget: "string" }
+          - {
+              label: "Чернетка",
+              name: "draft",
+              widget: "boolean",
+              required: false,
+            }
+          - {
+              label: "Фон заголовка",
+              name: "bg_image",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Опис",
+              name: "description",
+              widget: "string",
+              required: false,
+            }
+          - { label: "Тип", name: "type", widget: "string", required: false }
+          - { label: "Текст", name: "body", widget: "markdown" }
+      - label: "Протидія булінгу"
+        name: "anti_bullying"
+        file: "content/ukrainian/anti-bullying.md"
+        fields:
+          - { label: "Заголовок", name: "title", widget: "string" }
+          - {
+              label: "Чернетка",
+              name: "draft",
+              widget: "boolean",
+              required: false,
+            }
+          - {
+              label: "Фон заголовка",
+              name: "bg_image",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Опис",
+              name: "description",
+              widget: "string",
+              required: false,
+            }
+          - { label: "Тип", name: "type", widget: "string", required: false }
+          - { label: "Текст", name: "body", widget: "markdown" }
+      - label: "Контакти"
+        name: "contact"
+        file: "content/ukrainian/contact.md"
+        fields:
+          - { label: "Заголовок", name: "title", widget: "string" }
+          - {
+              label: "Чернетка",
+              name: "draft",
+              widget: "boolean",
+              required: false,
+            }
+          - {
+              label: "Фон заголовка",
+              name: "bg_image",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Опис",
+              name: "description",
+              widget: "string",
+              required: false,
+            }
+          - { label: "Тип", name: "type", widget: "string", required: false }
+          - {
+              label: "Шаблон",
+              name: "layout",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Телефон",
+              name: "phone",
+              widget: "string",
+              required: false,
+            }
+          - { label: "Пошта", name: "email", widget: "string", required: false }
+          - {
+              label: "Адреса",
+              name: "address",
+              widget: "string",
+              required: false,
+            }
+          - { label: "Текст", name: "body", widget: "markdown" }
