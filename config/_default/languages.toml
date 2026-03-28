@@ -2,10 +2,11 @@
 [en]
 languageName = "Ua"
 languageCode = "uk-ua"
-contentDir = "content/english"
+contentDir = "content/ukrainian"
 weight = 1
 
 [en.params]
 home = "Головна"
 # copyright
 copyright = "Copyright &copy; 2026 Бездрицький ліцей"
+
