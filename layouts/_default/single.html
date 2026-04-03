@@ -17,10 +17,7 @@
                             >
                                 <span class="font-weight-bold mr-2"
                                     >{{ i18n "posted_by" }} :</span
-                                ><a
-                                    href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize }}"
-                                    >{{ .Params.Author | title }}</a
-                                >
+                                >{{ .Params.Author }}
                             </li>
 
                             <li
