@@ -1,238 +1,527 @@
-﻿{{- $id := printf "images-%d" now.UnixNano -}}
-{{- $height := .Get "height" | default "420" -}}
-{{- $maxWidth := .Get "max" | default "900px" -}}
-{{- $autoplay := .Get "autoplay" | default "true" -}}
-{{- $dots := .Get "dots" | default "true" -}}
-{{- $arrows := .Get "arrows" | default "true" -}}
+{{- $pageID := "page" -}} {{- with .Page.File -}} {{- $pageID = .UniqueID -}}
+{{- end -}} {{- $id := printf "images-%s-%d" $pageID .Ordinal -}} {{- $height :=
+.Get "height" | default "420" -}} {{- $maxWidth := .Get "max" | default "900px"
+-}} {{- $autoplay := .Get "autoplay" | default "true" -}} {{- $dots := .Get
+"dots" | default "true" -}} {{- $arrows := .Get "arrows" | default "true" -}}
+{{- $scratch := newScratch -}} {{- $scratch.Set "items" (slice) -}} {{-
+$srcParam := .Get "src" -}} {{- if $srcParam -}} {{- $captionParam := .Get
+"caption" | default "" -}} {{- $altParam := .Get "alt" | default
+"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" -}} {{- $isRemote := or (hasPrefix $srcParam
+"http://") (hasPrefix $srcParam "https://") -}} {{- $imgURL := cond $isRemote
+$srcParam ($srcParam | relURL) -}} {{- $scratch.Add "items" (slice (dict "src"
+$imgURL "caption" $captionParam "alt" $altParam)) -}} {{- end -}} {{- $inner :=
+.Inner | strings.TrimSpace -}} {{- if $inner -}} {{- $lines := split $inner "\n"
+-}} {{- range $line := $lines -}} {{- $raw := strings.TrimSpace $line -}} {{- if
+$raw -}} {{- $parts := split $raw "|" -}} {{- $src := strings.TrimSpace (index
+$parts 0) -}} {{- $caption := "" -}} {{- if ge (len $parts) 2 -}} {{- $caption =
+strings.TrimSpace (delimit (after 1 $parts) "|") -}} {{- end -}} {{- $isRemote
+:= or (hasPrefix $src "http://") (hasPrefix $src "https://") -}} {{- $imgURL :=
+cond $isRemote $src ($src | relURL) -}} {{- $alt := cond (ne $caption "")
+$caption "пїЅпїЅпїЅпїЅ" -}} {{- $scratch.Add "items" (slice (dict "src" $imgURL
+"caption" $caption "alt" $alt)) -}} {{- end -}} {{- end -}} {{- end -}} {{-
+$items := $scratch.Get "items" -}} {{- $count := len $items -}} {{- if lt $count
+1 -}} {{- errorf "No images in shortcode (%s)" .Page.RelPermalink -}} {{- end
+-}}
 
-{{- $scratch := newScratch -}}
-{{- $scratch.Set "items" (slice) -}}
+<div
+    class="article-images"
+    id="{{ $id }}"
+    data-images-count="{{ $count }}"
+    data-autoplay="{{ $autoplay }}"
+    data-dots="{{ $dots }}"
+    data-arrows="{{ $arrows }}"
+    style="--images-height: {{ $height }}px; --images-max-width: {{ $maxWidth }};"
+>
+    <div
+        class="article-images__track{{ if eq $count 1 }} article-images__track--single{{ end }}"
+    >
+        {{- range $items -}}
+        <figure class="article-images__item">
+            <a
+                class="article-images__lightbox article-images__link"
+                href="{{ .src }}"
+                {{-
+                with
+                .caption
+                }}
+                data-caption="{{ . }}"
+                {{-
+                end
+                -}}
+            >
+                <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy" />
+            </a>
+            {{- if .caption -}}
+            <figcaption>{{ .caption }}</figcaption>
+            {{- end -}}
+        </figure>
+        {{- end -}}
+    </div>
 
-{{- $srcParam := .Get "src" -}}
-{{- if $srcParam -}}
-  {{- $captionParam := .Get "caption" | default "" -}}
-  {{- $altParam := .Get "alt" | default "Зображення" -}}
-  {{- $isRemote := or (hasPrefix $srcParam "http://") (hasPrefix $srcParam "https://") -}}
-  {{- $imgURL := cond $isRemote $srcParam ($srcParam | relURL) -}}
-  {{- $scratch.Add "items" (slice (dict "src" $imgURL "caption" $captionParam "alt" $altParam)) -}}
-{{- end -}}
-
-{{- $inner := .Inner | strings.TrimSpace -}}
-{{- if $inner -}}
-  {{- $lines := split $inner "\n" -}}
-  {{- range $line := $lines -}}
-    {{- $raw := strings.TrimSpace $line -}}
-    {{- if $raw -}}
-      {{- $parts := split $raw "|" -}}
-      {{- $src := strings.TrimSpace (index $parts 0) -}}
-      {{- $caption := "" -}}
-      {{- if ge (len $parts) 2 -}}
-        {{- $caption = strings.TrimSpace (delimit (after 1 $parts) "|") -}}
-      {{- end -}}
-      {{- $isRemote := or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
-      {{- $imgURL := cond $isRemote $src ($src | relURL) -}}
-      {{- $alt := cond (ne $caption "") $caption "Фото" -}}
-      {{- $scratch.Add "items" (slice (dict "src" $imgURL "caption" $caption "alt" $alt)) -}}
+    {{- if gt $count 1 -}}
+    <div class="article-images__thumbs">
+        {{- range $items -}}
+        <div class="article-images__thumb-item">
+            <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy" />
+        </div>
+        {{- end -}}
+    </div>
     {{- end -}}
-  {{- end -}}
-{{- end -}}
+</div>
 
-{{- $items := $scratch.Get "items" -}}
-{{- $count := len $items -}}
-{{- if lt $count 1 -}}
-  {{- errorf "Shortcode images: provide src=... or at least one image line in body (page: %s)" .Page.File.Path -}}
-{{- end -}}
-
-<div class="article-images" id="{{ $id }}" style="--images-height: {{ $height }}px; --images-max-width: {{ $maxWidth }};">
-  <div class="article-images__track{{ if eq $count 1 }} article-images__track--single{{ end }}">
-    {{- range $items -}}
-      <figure class="article-images__item">
-        <a class="venobox article-images__link" href="{{ .src }}" data-gall="{{ $id }}" {{ with .caption }}title="{{ . }}"{{ end }}>
-          <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy">
-        </a>
-        {{- if .caption }}
-        <figcaption>{{ .caption }}</figcaption>
-        {{- end }}
-      </figure>
-    {{- end -}}
-  </div>
-
-  {{- if gt $count 1 }}
-  <div class="article-images__thumbs">
-    {{- range $items -}}
-      <div class="article-images__thumb-item">
-        <img src="{{ .src }}" alt="{{ .alt }}" loading="lazy">
-      </div>
-    {{- end -}}
-  </div>
-  {{- end }}
+<div
+    class="article-images-modal{{ if le $count 1 }} article-images-modal--single{{ end }}"
+    id="{{ $id }}-modal"
+    aria-hidden="true"
+>
+    <button
+        type="button"
+        class="article-images-modal__nav article-images-modal__nav--prev"
+        aria-label="Previous image"
+    >
+        &lsaquo;
+    </button>
+    <button
+        type="button"
+        class="article-images-modal__nav article-images-modal__nav--next"
+        aria-label="Next image"
+    >
+        &rsaquo;
+    </button>
+    <button
+        type="button"
+        class="article-images-modal__close"
+        aria-label="пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
+    >
+        &times;
+    </button>
+    <img src="" alt="" />
+    <p class="article-images-modal__caption"></p>
 </div>
 
 <style>
-  .article-images {
-    max-width: var(--images-max-width);
-    width: 100%;
-    margin: 1.25rem auto;
-  }
-
-  .article-images__item {
-    margin: 0;
-    padding: 0 6px;
-  }
-
-  .article-images__link {
-    display: block;
-    cursor: zoom-in;
-  }
-
-  .article-images__item img {
-    width: 100%;
-    height: var(--images-height);
-    max-height: 70vh;
-    object-fit: cover;
-    border-radius: 4px;
-    display: block;
-  }
-
-  .article-images__track--single .article-images__item {
-    padding: 0;
-  }
-
-  .article-images__track--single .article-images__item img {
-    height: auto;
-    max-height: none;
-    object-fit: contain;
-  }
-
-  .article-images__item figcaption {
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-    color: #6c757d;
-    text-align: center;
-  }
-
-  .article-images__thumbs {
-    margin-top: 10px;
-  }
-
-  .article-images__thumb-item {
-    padding: 0 4px;
-    cursor: pointer;
-    opacity: 0.65;
-    transition: opacity 0.2s ease;
-  }
-
-  .article-images__thumb-item:hover {
-    opacity: 1;
-  }
-
-  .article-images__thumb-item img {
-    width: 100%;
-    height: 74px;
-    object-fit: cover;
-    border-radius: 3px;
-    display: block;
-  }
-
-  .article-images__thumbs .slick-current .article-images__thumb-item {
-    opacity: 1;
-  }
-
-  .article-images__thumbs .slick-current .article-images__thumb-item img {
-    outline: 2px solid #1e90ff;
-    outline-offset: 0;
-  }
-
-  @media (max-width: 767px) {
     .article-images {
-      margin: 1rem auto;
+        max-width: var(--images-max-width);
+        width: 100%;
+        margin: 1.25rem auto;
     }
 
     .article-images__item {
-      padding: 0 2px;
+        margin: 0;
+        padding: 0 6px;
+    }
+
+    .article-images__link {
+        display: block;
+        cursor: zoom-in;
     }
 
     .article-images__item img {
-      height: auto;
-      max-height: none;
-      object-fit: contain;
+        width: 100%;
+        height: var(--images-height);
+        max-height: 70vh;
+        object-fit: cover;
+        border-radius: 4px;
+        display: block;
+    }
+
+    .article-images__track--single .article-images__item {
+        padding: 0;
+    }
+
+    .article-images__track--single .article-images__item img {
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+    }
+
+    .article-images__item figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: #6c757d;
+        text-align: center;
+    }
+
+    .article-images__thumbs {
+        margin-top: 10px;
+    }
+
+    .article-images__thumb-item {
+        padding: 0 4px;
+        cursor: pointer;
+        opacity: 0.65;
+        transition: opacity 0.2s ease;
+    }
+
+    .article-images__thumb-item:hover {
+        opacity: 1;
     }
 
     .article-images__thumb-item img {
-      height: 56px;
+        width: 100%;
+        height: 74px;
+        object-fit: cover;
+        border-radius: 3px;
+        display: block;
     }
-  }
+
+    .article-images__thumbs .slick-current .article-images__thumb-item {
+        opacity: 1;
+    }
+
+    .article-images__thumbs .slick-current .article-images__thumb-item img {
+        outline: 2px solid #1e90ff;
+        outline-offset: 0;
+    }
+
+    .article-images .slick-slider {
+        position: relative;
+    }
+
+    .article-images .prevArrow,
+    .article-images .nextArrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .article-images .prevArrow {
+        left: 12px;
+    }
+
+    .article-images .nextArrow {
+        right: 12px;
+    }
+
+    .article-images .prevArrow:hover,
+    .article-images .nextArrow:hover {
+        background: rgba(0, 0, 0, 0.62);
+    }
+
+    .article-images .slick-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        list-style: none;
+        margin: 10px 0 0;
+        padding: 0;
+    }
+
+    .article-images .slick-dots li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .article-images .slick-dots li button {
+        width: 10px;
+        height: 10px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.3);
+        font-size: 0;
+        line-height: 0;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .article-images .slick-dots li::before,
+    .article-images .slick-dots li button::before {
+        content: none !important;
+        display: none !important;
+        opacity: 0 !important;
+        font-size: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    .article-images .slick-dots li.slick-active button {
+        background: #1e90ff;
+    }
+
+    .article-images-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.88);
+        z-index: 9999;
+        padding: 18px;
+    }
+
+    .article-images-modal.is-open {
+        display: flex;
+    }
+
+    .article-images-modal img {
+        max-width: min(96vw, 1280px);
+        max-height: 84vh;
+        border-radius: 4px;
+    }
+
+    .article-images-modal__caption {
+        margin-top: 10px;
+        color: #f1f1f1;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    .article-images-modal__close {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        border: 0;
+        background: transparent;
+        color: #fff;
+        font-size: 2rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .article-images-modal__nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        font-size: 30px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .article-images-modal__nav:hover {
+        background: rgba(0, 0, 0, 0.62);
+    }
+
+    .article-images-modal__nav--prev {
+        left: 16px;
+    }
+
+    .article-images-modal__nav--next {
+        right: 16px;
+    }
+
+    .article-images-modal--single .article-images-modal__nav {
+        display: none;
+    }
+
+    body.images-modal-open {
+        overflow: hidden;
+    }
+
+    @media (max-width: 767px) {
+        .article-images {
+            margin: 1rem auto;
+        }
+
+        .article-images__item {
+            padding: 0 2px;
+        }
+
+        .article-images__item img {
+            height: auto;
+            max-height: none;
+            object-fit: contain;
+        }
+
+        .article-images__thumb-item img {
+            height: 56px;
+        }
+    }
 </style>
 
 <script>
-  (function initImagesShortcode() {
-    if (!window.jQuery || !window.jQuery.fn) {
-      setTimeout(initImagesShortcode, 80);
-      return;
-    }
-
-    var $ = window.jQuery;
-    var $root = $("#{{ $id }}");
-    if (!$root.length) {
-      return;
-    }
-
-    var $main = $root.find(".article-images__track");
-    var $thumbs = $root.find(".article-images__thumbs");
-
-    if ($.fn.venobox) {
-      $root.find(".venobox").venobox();
-    } else {
-      setTimeout(initImagesShortcode, 80);
-      return;
-    }
-
-    if ({{ $count }} <= 1) {
-      return;
-    }
-
-    if (!$.fn.slick) {
-      setTimeout(initImagesShortcode, 80);
-      return;
-    }
-
-    if (!$main.length || !$thumbs.length || $main.hasClass("slick-initialized")) {
-      return;
-    }
-
-    $main.slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: true,
-      adaptiveHeight: true,
-      autoplay: {{ $autoplay }},
-      autoplaySpeed: 3500,
-      dots: {{ $dots }},
-      arrows: {{ $arrows }},
-      asNavFor: "#{{ $id }} .article-images__thumbs",
-      prevArrow: "<button type='button' class='prevArrow' aria-label='Попереднє фото'><i class='ti-angle-left'></i></button>",
-      nextArrow: "<button type='button' class='nextArrow' aria-label='Наступне фото'><i class='ti-angle-right'></i></button>"
-    });
-
-    $thumbs.slick({
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      asNavFor: "#{{ $id }} .article-images__track",
-      dots: false,
-      arrows: false,
-      focusOnSelect: true,
-      infinite: true,
-      centerMode: false,
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: { slidesToShow: 4 }
-        },
-        {
-          breakpoint: 576,
-          settings: { slidesToShow: 3 }
+    (function initImagesShortcode() {
+        if (!window.jQuery || !window.jQuery.fn) {
+            setTimeout(initImagesShortcode, 80);
+            return;
         }
-      ]
-    });
-  })();
+
+        var $ = window.jQuery;
+        var $root = $("#{{ $id }}");
+        if (!$root.length) {
+            return;
+        }
+        if ($root.data("imagesInit")) {
+            return;
+        }
+        $root.data("imagesInit", true);
+
+        var $main = $root.find(".article-images__track");
+        var $thumbs = $root.find(".article-images__thumbs");
+        var $modal = $("#{{ $id }}-modal");
+        var $modalImg = $modal.find("img");
+        var $modalCaption = $modal.find(".article-images-modal__caption");
+        var $modalPrev = $modal.find(".article-images-modal__nav--prev");
+        var $modalNext = $modal.find(".article-images-modal__nav--next");
+        var $links = $root.find(".article-images__lightbox");
+        var count = Number($root.data("images-count")) || 0;
+        var autoplay = String($root.data("autoplay")) === "true";
+        var dots = String($root.data("dots")) === "true";
+        var arrows = String($root.data("arrows")) === "true";
+        var currentIndex = 0;
+
+        var galleryItems = [];
+        $links.each(function () {
+            var $link = $(this);
+            galleryItems.push({
+                src: $link.attr("href") || "",
+                caption: $link.data("caption") || "",
+            });
+        });
+
+        function showModalImage(index) {
+            if (!galleryItems.length) {
+                return;
+            }
+            if (index < 0) {
+                index = galleryItems.length - 1;
+            }
+            if (index >= galleryItems.length) {
+                index = 0;
+            }
+            currentIndex = index;
+            $modalImg.attr("src", galleryItems[currentIndex].src);
+            $modalCaption.text(galleryItems[currentIndex].caption);
+            if ($main.hasClass("slick-initialized")) {
+                $main.slick("slickGoTo", currentIndex, true);
+            }
+        }
+
+        function refreshSlickPosition() {
+            if (count <= 1 || !$.fn.slick) {
+                return;
+            }
+            if ($main.hasClass("slick-initialized")) {
+                $main.slick("setPosition");
+            }
+            if ($thumbs.hasClass("slick-initialized")) {
+                $thumbs.slick("setPosition");
+            }
+        }
+
+        $links.on("click", function (e) {
+            e.preventDefault();
+            var idx = $links.index(this);
+            showModalImage(idx >= 0 ? idx : 0);
+            $modal.addClass("is-open").attr("aria-hidden", "false");
+            $("body").addClass("images-modal-open");
+            setTimeout(refreshSlickPosition, 0);
+        });
+
+        $modalPrev.on("click", function (e) {
+            e.preventDefault();
+            showModalImage(currentIndex - 1);
+        });
+
+        $modalNext.on("click", function (e) {
+            e.preventDefault();
+            showModalImage(currentIndex + 1);
+        });
+
+        function closeModal() {
+            $modal.removeClass("is-open").attr("aria-hidden", "true");
+            $modalImg.attr("src", "");
+            $modalCaption.text("");
+            $("body").removeClass("images-modal-open");
+            setTimeout(refreshSlickPosition, 0);
+        }
+
+        $modal.on("click", function (e) {
+            if (
+                $(e.target).is(
+                    ".article-images-modal, .article-images-modal__close",
+                )
+            ) {
+                closeModal();
+            }
+        });
+
+        $(document).on("keydown.images-{{ $id }}", function (e) {
+            if (!$modal.hasClass("is-open")) {
+                return;
+            }
+            if (e.key === "Escape") {
+                closeModal();
+                return;
+            }
+            if (count > 1 && e.key === "ArrowLeft") {
+                showModalImage(currentIndex - 1);
+                return;
+            }
+            if (count > 1 && e.key === "ArrowRight") {
+                showModalImage(currentIndex + 1);
+            }
+        });
+
+        if (count <= 1) {
+            return;
+        }
+
+        if (!$.fn.slick) {
+            setTimeout(initImagesShortcode, 80);
+            return;
+        }
+
+        if (
+            !$main.length ||
+            !$thumbs.length ||
+            $main.hasClass("slick-initialized")
+        ) {
+            return;
+        }
+
+        $main.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            adaptiveHeight: true,
+            autoplay: autoplay,
+            autoplaySpeed: 3500,
+            dots: dots,
+            arrows: arrows,
+            asNavFor: "#{{ $id }} .article-images__thumbs",
+            prevArrow:
+                "<button type='button' class='prevArrow' aria-label='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ'>&lsaquo;</button>",
+            nextArrow:
+                "<button type='button' class='nextArrow' aria-label='пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ'>&rsaquo;</button>",
+        });
+
+        $thumbs.slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            asNavFor: "#{{ $id }} .article-images__track",
+            dots: false,
+            arrows: false,
+            focusOnSelect: true,
+            infinite: true,
+            centerMode: false,
+            responsive: [
+                { breakpoint: 992, settings: { slidesToShow: 4 } },
+                { breakpoint: 576, settings: { slidesToShow: 3 } },
+            ],
+        });
+    })();
 </script>
