@@ -1,3 +1,4 @@
+baseURL = "https://bezdrykschool.pp.ua/"
 #################### default parameters ################################
 [params]
 logo = "images/logo.png"
