@@ -1,10 +1,9 @@
 ---
-title: "Правила внутрішнього розпорядку"
-date: 2024-09-02T09:00:00+03:00
-draft: false
 bg_image: "images/backgrounds/page-title.jpg"
+title: "Правила внутрішнього розпорядку"
+date: "2024-09-02"
 description: "Правила внутрішнього розпорядку Бездрицького ліцею"
-type: "notice"
+draft: true
 ---
 
 ### Про оголошення

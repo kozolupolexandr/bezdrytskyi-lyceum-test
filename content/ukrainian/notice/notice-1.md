@@ -3,7 +3,7 @@ bg_image: "images/backgrounds/page-title.jpg"
 title: "Розклад уроків на новий семестр"
 date: "2024-09-01"
 description: "Розклад уроків на новий навчальний семестр у Бездрицькому ліцеї"
-draft: true
+draft: false
 ---
 
 ### Про оголошення
