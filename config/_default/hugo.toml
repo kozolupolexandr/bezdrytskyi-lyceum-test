@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://bezdrytskyi-lyceum.github.io/"
+baseURL = "https://bezdrykschool.pp.ua/"
 title = "Бездрицький ліцей"
 theme = "educenter-hugo"
 timeZone = "Europe/Kyiv"
