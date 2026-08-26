@@ -1439,6 +1439,21 @@
 
   // ── Modal: Document link ───────────────────────────────
 
+  function documentLinkHref(relativePath) {
+    const cleanPath = String(relativePath || '').replace(/\\/g, '/').replace(/^\/+/, '')
+    const encodedPath = cleanPath
+      .split('/')
+      .map(part => part
+        .replace(/%/g, '%25')
+        .replace(/ /g, '%20')
+        .replace(/\(/g, '%28')
+        .replace(/\)/g, '%29')
+        .replace(/#/g, '%23')
+        .replace(/\?/g, '%3F'))
+      .join('/')
+    return `../../${encodedPath}`
+  }
+
   async function openDocLinkModal() {
     openModal('Посилання на документ', `
       <input class="picker-search" id="ml-doc-search" placeholder="Пошук документу..." />
@@ -1455,7 +1470,7 @@
       const sel = modalBody.querySelector('.picker-item.selected')
       if (!sel) return null
       const text = document.getElementById('ml-doc-text').value.trim() || sel.dataset.name
-      return `[${text}](/${sel.dataset.path})`
+      return `[${text}](${documentLinkHref(sel.dataset.path)})`
     })
 
     let docs = await window.api.listAllDocuments()
