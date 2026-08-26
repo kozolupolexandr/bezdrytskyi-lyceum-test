@@ -13,32 +13,17 @@ weight = 2
 
 [[main]]
 weight = 3
-name = "Сторінки"
-hasChildren = true
-
-  [[main]]
-  parent = "Сторінки"
-  name = "Адміністрація"
-  url = "administration/"
-
-  [[main]]
-  parent = "Сторінки"
-  name = "Вчителі"
-  url = "teacher/"
-
-  [[main]]
-  parent = "Сторінки"
-  name = "Оголошення"
-  url = "notice/"
-
-  [[main]]
-  parent = "Сторінки"
-  name = "Події"
-  url = "event/"
-
+name = "Оголошення"
+url = "notice/"
 
 [[main]]
 weight = 4
+name = "Події"
+url = "event/"
+
+
+[[main]]
+weight = 6
 name = "Посилання"
 hasChildren = true
 
@@ -50,12 +35,12 @@ hasChildren = true
 [[main]]
 name = "Блог"
 url = "blog/"
-weight = 4
+weight = 5
 
 [[main]]
 name = "Контакти"
 url = "contact/"
-weight = 5
+weight = 7
 
 
 # footer menu
