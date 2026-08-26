@@ -1,10 +1,9 @@
 ---
-title: "Графік канікул"
-date: 2024-09-03T09:00:00+03:00
-draft: false
 bg_image: "images/backgrounds/page-title.jpg"
+title: "Графік канікул"
+date: "2024-09-03"
 description: "Графік шкільних канікул у Бездрицькому ліцеї"
-type: "notice"
+draft: true
 ---
 
 ### Про оголошення
