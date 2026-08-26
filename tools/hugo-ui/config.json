@@ -74,31 +74,6 @@
       }
     },
     {
-      "path": "content\\ukrainian\\course",
-      "alias": "Курси",
-      "fileNamePattern": "course-{n}",
-      "exclude": ["_index.md"],
-      "schema": [
-        { "name": "title",       "type": "string",  "required": true },
-        { "name": "date",        "type": "date",    "default": "today" },
-        { "name": "description", "type": "string" },
-        { "name": "category",    "type": "string" },
-        { "name": "teacher",     "type": "string" },
-        { "name": "duration",    "type": "string",  "default": "Навчальний рік" },
-        { "name": "weekly",      "type": "string" },
-        { "name": "fee",         "type": "string",  "default": "Безкоштовно" },
-        { "name": "image",       "type": "string",  "asset": "images/courses" },
-        { "name": "draft",       "type": "boolean", "default": false },
-        { "name": "bg_image",    "type": "string",  "default": "images/backgrounds/page-title.jpg", "hidden": true },
-        { "name": "apply_url",   "type": "string",  "default": "#", "hidden": true },
-        { "name": "type",        "type": "string",  "default": "course", "hidden": true }
-      ],
-      "template": {
-        "frontMatter": { "draft": true, "fee": "Безкоштовно", "duration": "Навчальний рік" },
-        "body": "## Опис курсу\n\n"
-      }
-    },
-    {
       "path": "content\\ukrainian\\about",
       "alias": "Про заклад",
       "schema": [
@@ -108,44 +83,6 @@
       ],
       "template": {
         "frontMatter": {},
-        "body": ""
-      }
-    },
-    {
-      "path": "content\\ukrainian\\teacher",
-      "alias": "Вчителі",
-      "exclude": ["_index.md"],
-      "schema": [
-        { "name": "title",       "type": "string",  "required": true },
-        { "name": "description", "type": "string" },
-        { "name": "course",      "type": "string" },
-        { "name": "bio",         "type": "string" },
-        { "name": "interest",    "type": "array" },
-        { "name": "image",       "type": "string",  "asset": "images/teachers" },
-        { "name": "draft",       "type": "boolean", "default": false },
-        { "name": "bg_image",    "type": "string",  "default": "images/backgrounds/page-title.jpg", "hidden": true }
-      ],
-      "template": {
-        "frontMatter": { "draft": true },
-        "body": ""
-      }
-    },
-    {
-      "path": "content\\ukrainian\\administration",
-      "alias": "Адміністрація",
-      "exclude": ["_index.md"],
-      "schema": [
-        { "name": "title",       "type": "string",  "required": true },
-        { "name": "description", "type": "string" },
-        { "name": "course",      "type": "string" },
-        { "name": "bio",         "type": "string" },
-        { "name": "interest",    "type": "array" },
-        { "name": "image",       "type": "string",  "asset": "images/teachers" },
-        { "name": "draft",       "type": "boolean", "default": false },
-        { "name": "bg_image",    "type": "string",  "default": "images/backgrounds/page-title.jpg", "hidden": true }
-      ],
-      "template": {
-        "frontMatter": { "draft": true },
         "body": ""
       }
     },
