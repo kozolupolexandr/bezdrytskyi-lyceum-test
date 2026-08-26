@@ -6,6 +6,6 @@
   <div class="card-body">
     <!-- location -->
     <p><i class="ti-location-pin text-primary mr-2"></i>{{ .Params.Location | markdownify }}</p>
-    <h4 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+    <h4 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
   </div>
 </div>

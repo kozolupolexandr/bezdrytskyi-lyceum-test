@@ -30,13 +30,13 @@
                                     </li>
                                 </ul>
                                 <h4 class="card-title">
-                                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                                 </h4>
                                 <p class="card-text">
                                     {{ .Summary | truncate 100 }}
                                 </p>
                                 <a
-                                    href="{{ .Permalink }}"
+                                    href="{{ .RelPermalink }}"
                                     class="btn btn-primary btn-sm"
                                     >{{ i18n "read_more" }}</a
                                 >
