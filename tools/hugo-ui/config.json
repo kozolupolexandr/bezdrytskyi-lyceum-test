@@ -1,0 +1,169 @@
+{
+  "repoRoot": ".\\bezdrytskyi-lyceum-test",
+  "gitRemote": "https://github.com/kozolupolexandr/bezdrytskyi-lyceum-test.git",
+  "hugoBin":  ".\\portable-hugo\\hugo.exe",
+  "gitBin":   ".\\PortableGit\\bin\\git.exe",
+  "staticRoot": "static",
+  "assetsRoot": "assets",
+  "contentRoot": "content",
+  "media": {
+    "images": ["images"],
+    "imageRoot": "assets",
+    "documents": ["Prozorist", "anti-bullying"]
+  },
+  "directories": [
+    {
+      "path": "content\\ukrainian\\notice",
+      "alias": "Оголошення",
+      "fileNamePattern": "notice-{n}",
+      "exclude": ["_index.md"],
+      "schema": [
+        { "name": "title",       "type": "string",  "required": true },
+        { "name": "date",        "type": "date",    "default": "today" },
+        { "name": "description", "type": "string" },
+        { "name": "draft",       "type": "boolean", "default": false },
+        { "name": "bg_image",    "type": "string",  "default": "images/backgrounds/page-title.jpg", "hidden": true }
+      ],
+      "template": {
+        "frontMatter": { "draft": true },
+        "body": "## Текст оголошення\n\n"
+      }
+    },
+    {
+      "path": "content\\ukrainian\\blog",
+      "alias": "Новини",
+      "fileNamePattern": "blog-post-{n}",
+      "exclude": ["_index.md"],
+      "schema": [
+        { "name": "title",       "type": "string",  "required": true },
+        { "name": "date",        "type": "date",    "default": "today" },
+        { "name": "description", "type": "string" },
+        { "name": "author",      "type": "string",  "default": "Адміністрація" },
+        { "name": "categories",  "type": "array" },
+        { "name": "tags",        "type": "array" },
+        { "name": "image",       "type": "string",  "asset": "images/blog" },
+        { "name": "bg_image",    "type": "string",  "default": "images/backgrounds/page-title.jpg", "hidden": true },
+        { "name": "type",        "type": "string",  "default": "post", "hidden": true }
+      ],
+      "template": {
+        "frontMatter": { "categories": [], "tags": [] },
+        "body": "## Вступ\n\nНапишіть текст тут.\n"
+      }
+    },
+    {
+      "path": "content\\ukrainian\\event",
+      "alias": "Заходи",
+      "fileNamePattern": "event-{n}",
+      "exclude": ["_index.md"],
+      "schema": [
+        { "name": "title",       "type": "string",  "required": true },
+        { "name": "date",        "type": "date",    "default": "today" },
+        { "name": "publishDate", "type": "date",    "default": "today" },
+        { "name": "description", "type": "string" },
+        { "name": "location",    "type": "string" },
+        { "name": "fee",         "type": "string",  "default": "Безкоштовно" },
+        { "name": "image",       "type": "string",  "asset": "images/events" },
+        { "name": "draft",       "type": "boolean", "default": false },
+        { "name": "bg_image",    "type": "string",  "default": "images/backgrounds/page-title.jpg", "hidden": true },
+        { "name": "apply_url",   "type": "string",  "default": "#", "hidden": true },
+        { "name": "type",        "type": "string",  "default": "event", "hidden": true }
+      ],
+      "template": {
+        "frontMatter": { "draft": true, "fee": "Безкоштовно" },
+        "body": "## Про захід\n\nОпис заходу.\n"
+      }
+    },
+    {
+      "path": "content\\ukrainian\\course",
+      "alias": "Курси",
+      "fileNamePattern": "course-{n}",
+      "exclude": ["_index.md"],
+      "schema": [
+        { "name": "title",       "type": "string",  "required": true },
+        { "name": "date",        "type": "date",    "default": "today" },
+        { "name": "description", "type": "string" },
+        { "name": "category",    "type": "string" },
+        { "name": "teacher",     "type": "string" },
+        { "name": "duration",    "type": "string",  "default": "Навчальний рік" },
+        { "name": "weekly",      "type": "string" },
+        { "name": "fee",         "type": "string",  "default": "Безкоштовно" },
+        { "name": "image",       "type": "string",  "asset": "images/courses" },
+        { "name": "draft",       "type": "boolean", "default": false },
+        { "name": "bg_image",    "type": "string",  "default": "images/backgrounds/page-title.jpg", "hidden": true },
+        { "name": "apply_url",   "type": "string",  "default": "#", "hidden": true },
+        { "name": "type",        "type": "string",  "default": "course", "hidden": true }
+      ],
+      "template": {
+        "frontMatter": { "draft": true, "fee": "Безкоштовно", "duration": "Навчальний рік" },
+        "body": "## Опис курсу\n\n"
+      }
+    },
+    {
+      "path": "content\\ukrainian\\about",
+      "alias": "Про заклад",
+      "schema": [
+        { "name": "title",       "type": "string",  "required": true },
+        { "name": "date",        "type": "date",    "default": "today" },
+        { "name": "description", "type": "string" }
+      ],
+      "template": {
+        "frontMatter": {},
+        "body": ""
+      }
+    },
+    {
+      "path": "content\\ukrainian\\teacher",
+      "alias": "Вчителі",
+      "exclude": ["_index.md"],
+      "schema": [
+        { "name": "title",       "type": "string",  "required": true },
+        { "name": "description", "type": "string" },
+        { "name": "course",      "type": "string" },
+        { "name": "bio",         "type": "string" },
+        { "name": "interest",    "type": "array" },
+        { "name": "image",       "type": "string",  "asset": "images/teachers" },
+        { "name": "draft",       "type": "boolean", "default": false },
+        { "name": "bg_image",    "type": "string",  "default": "images/backgrounds/page-title.jpg", "hidden": true }
+      ],
+      "template": {
+        "frontMatter": { "draft": true },
+        "body": ""
+      }
+    },
+    {
+      "path": "content\\ukrainian\\administration",
+      "alias": "Адміністрація",
+      "exclude": ["_index.md"],
+      "schema": [
+        { "name": "title",       "type": "string",  "required": true },
+        { "name": "description", "type": "string" },
+        { "name": "course",      "type": "string" },
+        { "name": "bio",         "type": "string" },
+        { "name": "interest",    "type": "array" },
+        { "name": "image",       "type": "string",  "asset": "images/teachers" },
+        { "name": "draft",       "type": "boolean", "default": false },
+        { "name": "bg_image",    "type": "string",  "default": "images/backgrounds/page-title.jpg", "hidden": true }
+      ],
+      "template": {
+        "frontMatter": { "draft": true },
+        "body": ""
+      }
+    },
+    {
+      "_comment": "Окремі сторінки, що лежать просто в content/ukrainian (прозорість, анти-булінг, контакти). recursive: false — підпапки не показуються, бо вони налаштовані окремими записами вище. МАЄ БУТИ ОСТАННІМ у списку: dirConfigFor шукає перший збіг по префіксу, тож раніша позиція перехопила б схеми всіх підпапок.",
+      "path": "content\\ukrainian",
+      "alias": "Окремі сторінки",
+      "recursive": false,
+      "exclude": ["_index.md"],
+      "schema": [
+        { "name": "title",       "type": "string",  "required": true },
+        { "name": "date",        "type": "date",    "default": "today" },
+        { "name": "description", "type": "string" }
+      ],
+      "template": {
+        "frontMatter": {},
+        "body": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "hugo-ui",
+  "version": "1.0.0",
+  "description": "Minimal Electron app that reads configured directories",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "npm run build:portable",
+    "build:portable": "electron-builder --win portable --x64",
+    "clean": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/clean.ps1",
+    "package:portable": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-portable.ps1"
+  },
+  "build": {
+    "appId": "com.hugo.ui",
+    "productName": "Hugo UI",
+    "artifactName": "Hugo UI ${version}.${ext}",
+    "win": {
+      "target": "portable"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "config.json"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}

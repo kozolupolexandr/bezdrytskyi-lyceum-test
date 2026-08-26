@@ -1,0 +1,27 @@
+const { contextBridge, ipcRenderer, webUtils } = require('electron')
+
+contextBridge.exposeInMainWorld('api', {
+  getTree:          ()                            => ipcRenderer.invoke('get-tree'),
+  getSchema:        (filePath)                    => ipcRenderer.invoke('get-schema', filePath),
+  readFile:         (filePath)                    => ipcRenderer.invoke('read-file', filePath),
+  writeFile:        (filePath, frontMatter, body) => ipcRenderer.invoke('write-file', filePath, frontMatter, body),
+  createFile:       (dirPath, fileName)           => ipcRenderer.invoke('create-file', dirPath, fileName),
+  deleteFile:       (filePath)                     => ipcRenderer.invoke('delete-file', filePath),
+  getSuggestions:   (dirPath)                     => ipcRenderer.invoke('get-suggestions', dirPath),
+  nextFileName:     (dirPath)                     => ipcRenderer.invoke('next-file-name', dirPath),
+  getAllPages:       ()                            => ipcRenderer.invoke('get-all-pages'),
+  listAllImages:    ()                            => ipcRenderer.invoke('list-all-images'),
+  listAllDocuments: ()                            => ipcRenderer.invoke('list-all-documents'),
+  log:              (level, ...args)              => ipcRenderer.invoke('log', level, ...args),
+  gitPull:          ()                            => ipcRenderer.invoke('git-pull'),
+  gitCommitPush:    (message)                     => ipcRenderer.invoke('git-commit-push', message),
+  hugoServerStart:  ()                            => ipcRenderer.invoke('hugo-server-start'),
+  hugoServerStop:   ()                            => ipcRenderer.invoke('hugo-server-stop'),
+  openExternal:     (url)                         => ipcRenderer.invoke('open-external', url),
+  onHugoOutput:     (cb)                          => ipcRenderer.on('hugo-output', (_, d) => cb(d)),
+  offHugoOutput:    ()                            => ipcRenderer.removeAllListeners('hugo-output'),
+  getConfigPath:    ()                            => ipcRenderer.invoke('get-config-path'),
+  getMediaConfig:   ()                            => ipcRenderer.invoke('get-media-config'),
+  copyMediaFile:    (srcPath, type, subDir)       => ipcRenderer.invoke('copy-media-file', srcPath, type, subDir),
+  getPathForFile:   (file)                        => webUtils.getPathForFile(file),
+})
