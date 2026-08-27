@@ -1,10 +1,6 @@
 ---
 title: "Прозорість та інформаційна відкритість"
-draft: false
-bg_image: "images/backgrounds/page-title.jpg"
-image: "images/about/about-page.jpg"
 description: "Бездрицький ліцей — сучасний навчальний заклад Сумської області"
-type: "about"
 ---
 
 ## Прозорість та інформаційна відкритість
@@ -36,3 +32,5 @@ type: "about"
 - [Перелік додаткових освітніх та інших послуг, їх вартість, порядок надання та оплати](/about/perelik-dodatkovyh-poslug/)
 - [Атестація педагогічних працівників](/about/atestaciya-pedagogichnyh-pracivnykiv/)
 - [Положення про запобігання і протидію насильству та жорстокому поводженню з дітьми в закладі освіти](/about/polozhennya-pro-zapobigannya-nasylstvu/)
+
+- [Харчування](/about/harchuvannya/)
