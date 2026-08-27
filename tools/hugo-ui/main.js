@@ -171,7 +171,7 @@ ipcMain.handle('get-schema', (_, filePath) => {
 ipcMain.handle('read-file', (_, filePath) => {
   try {
     const raw = fs.readFileSync(filePath, 'utf-8')
-    const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/)
+    const match = raw.match(/^\uFEFF?---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/)
     if (!match) return { frontMatter: {}, body: raw }
 
     const frontMatter = {}
