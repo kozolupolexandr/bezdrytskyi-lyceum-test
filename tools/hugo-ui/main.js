@@ -38,6 +38,46 @@ function resolvePath(p, base) {
   return path.resolve(base || CONFIG_DIR, p)
 }
 
+// Files copied into static/ are referenced by public URLs. Keep newly added
+// image names ASCII-only so those URLs remain portable across filesystems and
+// hosting providers, including GitHub Pages.
+const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'])
+const TRANSLITERATION_MAP = {
+  А: 'A', Б: 'B', В: 'V', Г: 'H', Ґ: 'G', Д: 'D', Е: 'E', Є: 'Ye', Ж: 'Zh', З: 'Z', И: 'Y', І: 'I', Ї: 'Yi', Й: 'Y', К: 'K', Л: 'L', М: 'M', Н: 'N', О: 'O', П: 'P', Р: 'R', С: 'S', Т: 'T', У: 'U', Ф: 'F', Х: 'Kh', Ц: 'Ts', Ч: 'Ch', Ш: 'Sh', Щ: 'Shch', Ь: '', Ю: 'Yu', Я: 'Ya',
+  а: 'a', б: 'b', в: 'v', г: 'h', ґ: 'g', д: 'd', е: 'e', є: 'ye', ж: 'zh', з: 'z', и: 'y', і: 'i', ї: 'yi', й: 'y', к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r', с: 's', т: 't', у: 'u', ф: 'f', х: 'kh', ц: 'ts', ч: 'ch', ш: 'sh', щ: 'shch', ь: '', ю: 'yu', я: 'ya',
+  Ё: 'Yo', Ы: 'Y', Э: 'E', Ъ: '', ё: 'yo', ы: 'y', э: 'e', ъ: '',
+}
+
+function safeImageFileName(fileName) {
+  const extension = path.extname(fileName).toLowerCase()
+  const baseName = path.basename(fileName, path.extname(fileName))
+  const transliterated = [...baseName]
+    .map(character => TRANSLITERATION_MAP[character] ?? character)
+    .join('')
+  const safeBase = transliterated
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .toLowerCase() || 'image'
+  const fileBase = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i.test(safeBase)
+    ? `image-${safeBase}`
+    : safeBase
+  return `${fileBase}${extension}`
+}
+
+function availableMediaPath(destDir, fileName) {
+  const extension = path.extname(fileName)
+  const baseName = path.basename(fileName, extension)
+  let candidate = path.join(destDir, fileName)
+  let suffix = 2
+  while (fs.existsSync(candidate)) {
+    candidate = path.join(destDir, `${baseName}-${suffix}${extension}`)
+    suffix++
+  }
+  return candidate
+}
+
 // Two different bases on purpose:
 //  • repoRoot / hugoBin / gitBin are resolved against CONFIG_DIR (the folder holding
 //    config.json — next to the .exe), because they live outside the site checkout.
@@ -277,7 +317,9 @@ ipcMain.handle('list-static-files', (_, relPath) => {
 
 ipcMain.handle('list-all-images', () => {
   const config = readConfig()
-  const imageBase = config.assetsRoot || config.staticRoot
+  // Shortcode images are plain files served from the site root. They must be
+  // listed from static/, not from Hugo Pipes' assets/ directory.
+  const imageBase = config.staticRoot
   const media = config.media
   const imageDirs = media?.images || []
   const result = []
@@ -628,15 +670,30 @@ ipcMain.handle('get-media-config', () => {
 
 ipcMain.handle('copy-media-file', (_, srcPath, type, subDir) => {
   const config = readConfig()
-  const destDir = type === 'image'
-    ? path.join(config.assetsRoot || config.staticRoot, subDir)
-    : path.join(config.staticRoot, subDir)
+  const destDir = path.join(config.staticRoot, subDir)
   try {
+    if (!srcPath || !fs.statSync(srcPath).isFile()) {
+      return { error: 'Файл для копіювання не знайдено' }
+    }
+    const extension = path.extname(srcPath).toLowerCase()
+    if (type === 'image' && !IMAGE_EXTENSIONS.has(extension)) {
+      return { error: `Непідтримуваний формат зображення: ${extension || 'без розширення'}` }
+    }
     fs.mkdirSync(destDir, { recursive: true })
-    const destPath = path.join(destDir, path.basename(srcPath))
+    const fileName = type === 'image'
+      ? safeImageFileName(path.basename(srcPath))
+      : path.basename(srcPath)
+    const destPath = type === 'image'
+      ? availableMediaPath(destDir, fileName)
+      : path.join(destDir, fileName)
     fs.copyFileSync(srcPath, destPath)
     log('INFO', 'copy-media-file:', srcPath, '→', destPath)
-    return { ok: true }
+    return {
+      ok: true,
+      name: path.basename(destPath),
+      relativePath: path.relative(config.staticRoot, destPath).replace(/\\/g, '/'),
+      url: '/' + path.relative(config.staticRoot, destPath).replace(/\\/g, '/'),
+    }
   } catch (e) {
     log('ERROR', 'copy-media-file:', e.message)
     return { error: e.message }

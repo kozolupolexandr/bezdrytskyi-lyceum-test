@@ -8,7 +8,6 @@
   "contentRoot": "content",
   "media": {
     "images": ["images"],
-    "imageRoot": "assets",
     "documents": ["Prozorist", "anti-bullying"]
   },
   "directories": [

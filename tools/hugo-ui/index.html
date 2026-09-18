@@ -1529,7 +1529,7 @@
       const sel = document.querySelector('.img-grid-item.selected')
       if (!sel) return null
       const caption = document.getElementById('ml-img-caption').value.trim()
-      const src = '/' + sel.dataset.rel
+      const src = imageUrlForShortcode(sel.dataset.rel)
       return caption
         ? `{{< images src="${src}" caption="${caption}" >}}{{< /images >}}`
         : `{{< images src="${src}" >}}{{< /images >}}`
@@ -1564,7 +1564,7 @@
       const items = [...document.querySelectorAll('.carousel-selected-item')]
       if (!items.length) return null
       const lines = items.map(item => {
-        const rel = item.dataset.rel
+        const rel = imageUrlForShortcode(item.dataset.rel)
         const cap = item.querySelector('.carousel-caption-input').value.trim()
         return cap ? `${rel} | ${cap}` : rel
       })
@@ -1586,6 +1586,10 @@
   }
 
   // ── Image grid renderer ────────────────────────────────
+
+  function imageUrlForShortcode(relativePath) {
+    return '/' + String(relativePath || '').replace(/^\/+/, '')
+  }
 
   function renderImageGrid(gridId, images, multiSelect) {
     const grid = document.getElementById(gridId)
