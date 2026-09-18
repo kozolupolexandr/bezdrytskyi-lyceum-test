@@ -132,10 +132,12 @@ function buildTree(dirPath, exclude, recursive = true) {
           children: buildTree(full, exclude, recursive),
         })
       } else if (entry.name.endsWith('.md')) {
+        const stats = fs.statSync(full)
         children.push({
           type: 'file',
           name: entry.name,
           path: full,
+          modifiedAt: stats.mtimeMs,
         })
       }
     }
@@ -144,6 +146,10 @@ function buildTree(dirPath, exclude, recursive = true) {
   }
   children.sort((a, b) => {
     if (a.type !== b.type) return a.type === 'dir' ? -1 : 1
+    if (a.type === 'file') {
+      const modifiedDiff = (b.modifiedAt || 0) - (a.modifiedAt || 0)
+      if (modifiedDiff !== 0) return modifiedDiff
+    }
     return a.name.localeCompare(b.name)
   })
   return children
