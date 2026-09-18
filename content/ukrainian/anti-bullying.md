@@ -8,7 +8,6 @@ description: "Бездрицький ліцей — сучасний навча�
 ### Матеріали
 
 - [Правила поведінки здобувача освіти в закладі освіти](/about/pravyla-povedinky-zdobuvacha-osvity/)
-- [План заходів, спрямованих на запобігання та протидію булінгу (цькуванню) в закладі освіти](/about/plan-zahodiv-zapobigannya-bulingu/)
 - [Положення про запобігання та протидію насильству](/about/polozhennia-pro-zapobihannia-ta-protydiiu-nasylstvu/)
 - [Оновлений порядк реагування на булінг](/about/onovlenyi-poriadok-reahuvannia-na-bulinh/)
 - [Розпізнавання ознак насилля. Алгоритм дій](/about/rozpiznavannia-oznak-nasyllia-alhorytm-dii/)
