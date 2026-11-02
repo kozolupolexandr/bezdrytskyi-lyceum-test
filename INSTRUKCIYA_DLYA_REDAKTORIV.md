@@ -4,7 +4,7 @@
 
 - Основний контент: `content/ukrainian/`
 - Зображення сайту: `static/images/`
-- Файли для завантаження (PDF, DOCX): `static/Prozorist/`, `static/anti-bullying/`
+- Файли для завантаження (PDF, DOCX): `static/documents/`
 
 ## 2) Які типи сторінок ви редагуєте
 
@@ -121,11 +121,11 @@ https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w
 
 ## 9) Як додати PDF/DOCX
 
-1. Скопіюйте файл у `static/Prozorist/` або `static/anti-bullying/`.
+1. Скопіюйте файл у `static/documents/`.
 2. Додайте посилання у тексті:
 
 ```md
-[Завантажити документ](/Prozorist/nazva-failu.pdf)
+[Завантажити документ](/documents/nazva-failu.pdf)
 ```
 
 ## 10) Як правильно формувати шляхи до файлів і зображень
@@ -151,16 +151,16 @@ https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w
 
 ### Шляхи до документів (PDF/DOCX)
 
-Якщо файл у `static/Prozorist/plan.pdf`, посилання має бути:
+Якщо файл у `static/documents/plan.pdf`, посилання має бути:
 
 ```md
-[Завантажити план](/Prozorist/plan.pdf)
+[Завантажити план](/documents/plan.pdf)
 ```
 
-Якщо файл у `static/anti-bullying/rules.pdf`, посилання має бути:
+Якщо файл у `static/documents/rules.pdf`, посилання має бути:
 
 ```md
-[Правила](/anti-bullying/rules.pdf)
+[Правила](/documents/rules.pdf)
 ```
 
 ### Шляхи у шорткоді `images`

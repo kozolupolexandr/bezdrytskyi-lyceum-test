@@ -8,4 +8,4 @@ description: "Повідомити про булінг"
 
 Повідомити про булінг можна <a href="https://aikom.iea.gov.ua/" target="_blank">тут</a>
 
-![QR-код для повідомлення про булінг](/anti-bullying/qr-aikom.png)
+![QR-код для повідомлення про булінг](/documents/qr-aikom.png)

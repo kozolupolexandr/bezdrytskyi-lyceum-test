@@ -1451,7 +1451,8 @@
         .replace(/#/g, '%23')
         .replace(/\?/g, '%3F'))
       .join('/')
-    return `../../${encodedPath}`
+    const fileName = cleanPath.split('/').pop() || ''
+    return `/documents/${encodeURIComponent(fileName)}`
   }
 
   async function openDocLinkModal() {

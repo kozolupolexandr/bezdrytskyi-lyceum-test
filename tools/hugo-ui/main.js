@@ -683,9 +683,8 @@ ipcMain.handle('copy-media-file', (_, srcPath, type, subDir) => {
     const fileName = type === 'image'
       ? safeImageFileName(path.basename(srcPath))
       : path.basename(srcPath)
-    const destPath = type === 'image'
-      ? availableMediaPath(destDir, fileName)
-      : path.join(destDir, fileName)
+    // Keep existing document names, but never replace an uploaded file with the same name.
+    const destPath = availableMediaPath(destDir, fileName)
     fs.copyFileSync(srcPath, destPath)
     log('INFO', 'copy-media-file:', srcPath, '→', destPath)
     return {

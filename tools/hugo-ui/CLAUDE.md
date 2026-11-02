@@ -37,7 +37,7 @@ The renderer never touches Node APIs directly. Everything goes through `preload.
 - `nextFileName(dirPath)` — computes next filename from `fileNamePattern` (e.g. `notice-{n}`)
 - `getAllPages()` — scans all content dirs and returns `{ title, relativePath }` for internal link picker
 - `listAllImages()` — reads `media.images` dirs under `assetsRoot`, returns base64 data URLs for the image grid
-- `listAllDocuments()` — reads `media.documents` dirs under `staticRoot`
+- `listAllDocuments()` — lists files directly inside each `media.documents` dir under `staticRoot`; document links use `/documents/<filename>`
 - `log(level, ...args)` — writes to `hugo-ui.log` in the app directory
 
 ### config.json schema
@@ -46,7 +46,9 @@ The renderer never touches Node APIs directly. Everything goes through `preload.
 
 - `staticRoot` / `assetsRoot` / `contentRoot` — absolute paths to Hugo project directories (relative paths are resolved from `config.json` location)
 - `media.images` — array of subdirectory names under `assetsRoot` that contain images
-- `media.documents` — array of subdirectory names under `staticRoot` that contain downloadable documents
+- `media.documents` — array of directories under `staticRoot` that contain downloadable documents. The current site stores them directly in `static/documents/`, configured as `["documents"]`.
+
+Document uploads are copied into the configured directory without renaming the original filename. If that name already exists, the app adds `-2`, `-3`, etc. before the extension rather than overwriting it. The document picker lists all regular files in that directory regardless of extension and inserts site-root links such as `/documents/report.pdf`.
 - `directories[]` — one entry per editable content directory, each with:
   - `path` — absolute path
   - `exclude` — filenames to hide (e.g. `["_index.md"]`)
