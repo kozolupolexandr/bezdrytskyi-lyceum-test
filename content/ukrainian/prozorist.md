@@ -10,6 +10,7 @@ description: "Бездрицький ліцей — сучасний навча�
 - [Структура та органи управління закладу освіти](/about/struktura-ta-organy-upravlinnya-zakladu-osvity/)
 - [Кадровий склад ліцею Педагогічний колектив](/about/kadrovyj-sklad-liceyu-pedagogichnyj-kolektyv/)
 - [Освітні програми](/about/osvitni-programy/)
+- [Завантажити файл 123.txt](/files/telegram/d71838c203bb-2/01-123.txt)
 - [Територія обслуговування](/about/terytoriya-obslugovuvannya/)
 - [Ліцензований обсяг та фактична кількість осіб, які навчаються у закладі освіти](/about/licenzovanyj-obsyag-ta-faktychna-kilkist-osib/)
 - [Наявність вакантних посад](/about/nayavnist-vakantnyh-posad/)
